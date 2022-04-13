@@ -17,6 +17,7 @@ function getParametersForUnsplash({ width, height, quality, format }) {
  * (Markdown으로 된 문자열의 특수문자를 제거하기 위함)
  * */
 function removeSpecialCharacter(str) {
+  /*
   const removeCharacters = ['#', '_', '*', '~', '&', ';', '!', '[', ']', '`', '>', '\n', '=', '-']
   let _str = str
   let i = 0,
@@ -30,8 +31,14 @@ function removeSpecialCharacter(str) {
         continue
       }
       j++
-    }
+    }    
   }
+  */
+
+  // - 특수 문자 효율적으로 제거
+  // - 작업 양 줄이기 (모든 글자 대신에 300자 정도)
+  let _str = str.substring(0, 300)
+  _str = _str.replace(/[\#\_\*\~\&\;\!\[\]\`\>\\n\=\-]/g, '')
 
   return _str
 }
