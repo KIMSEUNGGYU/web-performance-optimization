@@ -6,13 +6,23 @@ import SurveyChart from './components/SurveyChart'
 import Footer from './components/Footer'
 // import ImageModal from './components/ImageModal'
 
-const LazyImageModal = lazy(() => import('./components/ImageModal'))
+function lazyWithPreload(importFunction) {
+    const Component = React.lazy(importFunction);
+    Component.preload = importFunction
+    return Component
+}
+
+// const LazyImageModal = lazy(() => import('./components/ImageModal'))
+const LazyImageModal = lazyWithPreload(() => import('./components/ImageModal'))
 
 function App() {
     const [showModal, setShowModal] = useState(false)
 
     useEffect(() => {
-        const component = import('./components/ImageModal')
+        // const component = import('./components/ImageModal')
+        
+        // preload 가 필요한 시점에 preload 를 호출해 사용 가능
+        LazyImageModal.preload()
     }, [])
 
     // const handleMouseEnter = () => {
