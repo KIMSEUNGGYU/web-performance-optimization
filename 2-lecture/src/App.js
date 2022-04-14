@@ -11,11 +11,15 @@ const LazyImageModal = lazy(() => import('./components/ImageModal'))
 function App() {
     const [showModal, setShowModal] = useState(false)
 
+    const handleMouseEnter = () => {
+        const component = import('./components/ImageModal')
+    }
+
     return (
         <div className="App">
             <Header />
             <InfoTable />
-            <ButtonModal onClick={() => { setShowModal(true) }}>올림픽 사진 보기</ButtonModal>
+            <ButtonModal onClick={() => { setShowModal(true) }} onMouseEnter={handleMouseEnter}>올림픽 사진 보기</ButtonModal>
             <SurveyChart />
             <Footer />
             <Suspense fallback={null}>
