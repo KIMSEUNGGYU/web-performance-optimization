@@ -14,6 +14,8 @@ function Card(props) {
 				  console.log('callback', entry.target.dataset.src);
 				  // 이 시점에 img 태그의 src 요소가 생겨, 이때 이미지 리소스를 로드
 				  entry.target.src = entry.target.dataset.src; // 콜백 함수가 호출되면 이미지를 요청!
+				  // source 태그도 lazy 로딩 적용
+				  entry.target.previousSibling.srcset = entry.target.previousSibling.dataset.srcset;
 
 				  // 최초 한 번만 호출되어야 하므로 unobserve 
 				  observer.unobserve(entry.target)
@@ -29,7 +31,7 @@ function Card(props) {
 	return (
 		<div className="Card text-center">
 			<picture>
-				<source srcSet={props.webp} type='image/webp' />
+				<source data-srcset={props.webp} type='image/webp' />
 				<img data-src={props.image} alt="img" ref={imgRef} />
 			</picture>
 			<div className="p-5 font-semibold text-gray-700 text-xl md:text-lg lg:text-xl keep-all">
