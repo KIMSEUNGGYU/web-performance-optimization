@@ -14,6 +14,9 @@ function Card(props) {
 				  console.log('callback', entry.target.dataset.src);
 				  // 이 시점에 img 태그의 src 요소가 생겨, 이때 이미지 리소스를 로드
 				  entry.target.src = entry.target.dataset.src; // 콜백 함수가 호출되면 이미지를 요청!
+
+				  // 최초 한 번만 호출되어야 하므로 unobserve 
+				  observer.unobserve(entry.target)
 			  }
 			});
 		  };
