@@ -9,15 +9,17 @@
     "axios": "^0.19.1",
     "express": "^4.17.1",
     "fontfaceobserver": "^2.1.0",
+    "preload-webpack-plugin": "^3.0.0-beta.3",
     "react": "^16.12.0",
+    "react-app-rewired": "^2.2.1",
     "react-dom": "^16.12.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.3.0",
     "tailwindcss": "^1.1.4"
   },
   "scripts": {
-    "start": "npm run build:style && react-scripts start",
-    "build": "npm run build:style && react-scripts build",
+    "start": "npm run build:style && react-app-rewired start",
+    "build": "npm run build:style && react-app-rewired build",
     "build:style": "postcss src/tailwind.css -o src/styles.css",
     "serve": "node ./server/server.js",
     "server": "node ./node_modules/json-server/lib/cli/bin.js --watch ./server/database.json -c ./server/config.json"
