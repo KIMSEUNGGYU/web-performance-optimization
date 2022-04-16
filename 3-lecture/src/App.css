@@ -7,8 +7,10 @@
 	/* src: url('./assets/fonts/BMYEONSUNG.ttf') format('truetype'); */
 	/* 해당 포맷이 어떤 타입인지 명시 할 수 있음 */
 	src: local('BMYEONSUNG'), 
-		url('./assets/fonts/BMYEONSUNG.woff2') format('woff2'),
-		url('./assets/fonts/BMYEONSUNG.woff') format('woff'),
+		/* url('./assets/fonts/BMYEONSUNG.woff2') format('woff2'),
+		url('./assets/fonts/BMYEONSUNG.woff') format('woff'), */
+		url('./assets/fonts/subset-BMYEONSUNG.woff2') format('woff2'),
+		url('./assets/fonts/subset-BMYEONSUNG.woff') format('woff'),
 		url('./assets/fonts/BMYEONSUNG.ttf') format('truetype');
 	font-display: block;
 }
