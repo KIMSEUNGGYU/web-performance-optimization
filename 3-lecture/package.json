@@ -23,7 +23,7 @@
     "build:style": "postcss src/tailwind.css -o src/styles.css",
     "serve": "node ./server/server.js",
     "server": "node ./node_modules/json-server/lib/cli/bin.js --watch ./server/database.json -c ./server/config.json",
-    "purge": "purgecss --css ./build/static/css/*.css --output ./build/static/css/ --content ./build/index.html ./build/static/js/*.js"
+    "purge": "purgecss --css ./build/static/css/*.css --output ./build/static/css/ --content ./build/index.html ./build/static/js/*.js --config ./purgecss.config.js"
   },
   "eslintConfig": {
     "extends": "react-app"
